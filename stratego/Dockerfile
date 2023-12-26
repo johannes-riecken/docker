@@ -1,0 +1,2 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y git maven python3 python3-venv && cd root && git clone --recurse-submodules https://github.com/metaborg/spoofax-releng.git && cd spoofax-releng/ && git submodule init && git submodule update && ./b gen-mvn-settings && ./b build all && chmod +x /root/spoofax-releng/spoofax/org.metaborg.spoofax.nativebundle/target/classes/org/metaborg/spoofax/nativebundle/native/linux/{sdf2table,implodePT}
